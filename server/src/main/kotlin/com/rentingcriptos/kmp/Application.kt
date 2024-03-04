@@ -1,24 +1,15 @@
 package com.rentingcriptos.kmp
 
-import Greeting
-import SERVER_PORT
+import com.rentingcriptos.kmp.plugins.configureRouting
+import com.rentingcriptos.kmp.plugins.configureSecurity
+import com.rentingcriptos.kmp.plugins.getJwtConfig
 import io.ktor.server.application.Application
-import io.ktor.server.application.call
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
-import io.ktor.server.response.respondText
-import io.ktor.server.routing.get
-import io.ktor.server.routing.routing
+import io.ktor.server.netty.EngineMain
 
-fun main() {
-    embeddedServer(Netty, port = SERVER_PORT, host = "0.0.0.0", module = Application::module)
-        .start(wait = true)
-}
+fun main(args: Array<String>): Unit = EngineMain.main(args)
 
 fun Application.module() {
-    routing {
-        get("/") {
-            call.respondText("Ktor: ${Greeting().greet()}")
-        }
-    }
+    val jwtConfig = getJwtConfig()
+    configureSecurity(jwtConfig)
+    configureRouting(jwtConfig)
 }

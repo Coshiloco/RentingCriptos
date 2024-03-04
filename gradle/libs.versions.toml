@@ -14,6 +14,7 @@ compose = "1.6.2"
 compose-plugin = "1.5.12"
 junit = "4.13.2"
 kotlin = "1.9.22"
+kotlinSerialization = "1.9.20"
 ktor = "2.3.8"
 logback = "1.4.14"
 
@@ -47,4 +48,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
 kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
